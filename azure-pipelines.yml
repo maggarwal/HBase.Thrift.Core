@@ -38,7 +38,7 @@ steps:
 
 - task: NuGetCommand@2
   inputs:
-    command: 'pack'
-    packagesToPack: '**/HBase.Thrift.Core.csproj'
-    versioningScheme: 'byEnvVar'
-    versionEnvVar: 'BuildNum'
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)*.nupkg'
+    nuGetFeedType: 'external'
+    publishFeedCredentials: 'Nuget'
