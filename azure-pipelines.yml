@@ -7,9 +7,6 @@
 variables:
   buildConfiguration: 'Release'
   workingDirectory: '$(Build.SourcesDirectory)'
-  packageDirectory: '$(Build.SourcesDirectory)/hbase-core/bin/Release/'
-  nuget.apikey: 'oy2mfjtbctglqdcnx24q23ccslyapcyebcivevefcoa4ii'
-  nugetSource: 'https://api.nuget.org/v3/index.json'
 
 name: 1.0.0$(Rev:.r)
 
