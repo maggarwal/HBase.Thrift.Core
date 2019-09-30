@@ -11,6 +11,8 @@ variables:
   nuget.apikey: 'oy2mfjtbctglqdcnx24q23ccslyapcyebcivevefcoa4ii'
   nugetSource: 'https://api.nuget.org/v3/index.json'
 
+name: $(BuildDefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)
+
 trigger:
   batch: true
   branches:
@@ -33,8 +35,7 @@ steps:
   inputs:
     command: 'pack'
     packagesToPack: '**/HBase.Thrift.Core.csproj'
-    versioningScheme: 'byEnvVar'
-    versionEnvVar: 'BuildNum'
+    versioningScheme: 'byBuildNumber'
 
 - task: NuGetCommand@2
   inputs:
