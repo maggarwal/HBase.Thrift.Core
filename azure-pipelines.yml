@@ -15,8 +15,9 @@ pool:
 steps:
 - script: dotnet restore ./All.sln
   displayName: Restore
-  workingDirectory: $(workingDirectory)
+#workingDirectory: $(workingDirectory)
 
 - script: dotnet build ./All.sln --configuration $(buildConfiguration)
   displayName: Build
-  workingDirectory: $(workingDirectory)
+#  workingDirectory: $(workingDirectory)
+
