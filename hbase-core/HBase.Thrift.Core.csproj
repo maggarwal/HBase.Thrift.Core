@@ -5,6 +5,12 @@
     <RootNamespace>HBase.Thrift.Core</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>This is a C# (.net standard) client for HBase which uses Thrift Interface. This project is fork of https://bitbucket.org/vadim/hbase-sharp</Description>
+    <PackageProjectUrl>https://github.com/maggarwal/HBase.Thrift.Core</PackageProjectUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>hbase.snk</AssemblyOriginatorKeyFile>
+    <RepositoryUrl>https://github.com/maggarwal/HBase.Thrift.Core</RepositoryUrl>
+    <DelaySign>false</DelaySign>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
