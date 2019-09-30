@@ -3,11 +3,11 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>HBase.Thrift.Core</RootNamespace>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>This is a C# (.net standard) client for HBase which uses Thrift Interface. This project is fork of https://bitbucket.org/vadim/hbase-sharp</Description>
     <PackageProjectUrl>https://github.com/maggarwal/HBase.Thrift.Core</PackageProjectUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
     <AssemblyOriginatorKeyFile>hbase.snk</AssemblyOriginatorKeyFile>
     <RepositoryUrl>https://github.com/maggarwal/HBase.Thrift.Core</RepositoryUrl>
     <DelaySign>false</DelaySign>
