@@ -7,6 +7,7 @@
 variables:
   buildConfiguration: 'Release'
   workingDirectory: '$(Build.SourcesDirectory)'
+  packageDirectory: '$(Build.SourcesDirectory)/hbase-core/bin/Release/'
 
 trigger:
   batch: true
@@ -22,7 +23,7 @@ steps:
     packageType: 'sdk'
     version: '3.x'
 
-- script: echo $(workingDirectory)
+- script: echo $(packageDirectory)
 
 - script: dotnet restore ./*.sln
   displayName: Restore
@@ -35,6 +36,6 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    packagesToPush: '$(packageDirectory)*.nupkg'
     nuGetFeedType: 'internal'
     publishVstsFeed: 'de1d3cc7-dbd7-4f2d-b79b-f193d96c07ac'
