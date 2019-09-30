@@ -4,6 +4,10 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+variables:
+  buildConfiguration: 'Release'
+  workingDirectory: '$(Build.SourcesDirectory)'
+
 trigger:
   batch: true
   branches:
@@ -13,11 +17,11 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: dotnet restore ./All.sln
+- script: dotnet restore ./*.sln
   displayName: Restore
-#workingDirectory: $(workingDirectory)
+  workingDirectory: $(workingDirectory)
 
-- script: dotnet build ./All.sln --configuration $(buildConfiguration)
+- script: dotnet build ./*.sln --configuration $(buildConfiguration)
   displayName: Build
-#  workingDirectory: $(workingDirectory)
+  workingDirectory: $(workingDirectory)
 
