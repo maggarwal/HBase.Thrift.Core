@@ -8,6 +8,8 @@ variables:
   buildConfiguration: 'Release'
   workingDirectory: '$(Build.SourcesDirectory)'
   packageDirectory: '$(Build.SourcesDirectory)/hbase-core/bin/Release/'
+  nuget.apikey: 'oy2mfjtbctglqdcnx24q23ccslyapcyebcivevefcoa4ii'
+  nugetSource: 'https://api.nuget.org/v3/index.json'
 
 trigger:
   batch: true
@@ -34,12 +36,7 @@ steps:
   workingDirectory: $(workingDirectory)
 
 - task: NuGetToolInstaller@1
-  inputs:
-    versionSpec: 
-- task: CmdLine@2
-  inputs:
-    script: |
-      nuget setApiKey oy2mfjtbctglqdcnx24q23ccslyapcyebcivevefcoa4ii
-      
-      nuget push $(packageDirectory)*.nupkg -Source https://api.nuget.org/v3/index.json'
-
+  displayName: 'Install NuGet'
+  
+- script: nuget push $(packageDirectory)*.nupkg -Source $(nugetSource) -ApiKey $(nuget.apikey) -SkipDuplicate -NoSymbols
+  displayName: 'Push to NuGet.org'
