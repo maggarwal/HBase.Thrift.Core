@@ -33,7 +33,8 @@ steps:
   inputs:
     command: 'pack'
     packagesToPack: '**/HBase.Thrift.Core.csproj'
-    versioningScheme: 'byBuildNumber'
+    versioningScheme: 'byEnvVar'
+    versionEnvVar: 'BuildNum'
 
 - task: NuGetCommand@2
   inputs:
