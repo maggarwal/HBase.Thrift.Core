@@ -25,24 +25,19 @@ steps:
     packageType: 'sdk'
     version: '3.x'
 
-# - script: dotnet restore ./*.sln
-#   displayName: Restore
-#   workingDirectory: $(workingDirectory)
-- script: echo '$(Rev:.rr)'
-
 - script: dotnet build ./*.sln --configuration $(buildConfiguration)
   displayName: Build
   workingDirectory: $(workingDirectory)
 
-# - task: NuGetToolInstaller@1
-#   displayName: 'Install NuGet'
-  
-# - script: nuget push $(packageDirectory)*.nupkg -Source $(nugetSource) -ApiKey $(nuget.apikey) -SkipDuplicate -NoSymbols
-#   displayName: 'Push to NuGet.org'
+- task: NuGetCommand@2
+  inputs:
+    command: 'pack'
+    packagesToPack: '**/HBase.Thrift.Core.csproj'
+    versioningScheme: 'byBuildNumber'
 
 - task: NuGetCommand@2
   inputs:
     command: 'push'
-    packagesToPush: '$(packageDirectory)*.nupkg'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)*.nupkg'
     nuGetFeedType: 'external'
     publishFeedCredentials: 'Nuget'
