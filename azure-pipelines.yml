@@ -1,22 +1,27 @@
 # Starter pipeline
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build'
+
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+variables:
+  buildConfiguration: 'Release'
+  workingDirectory: '$(Build.SourcesDirectory)'
+
 trigger:
-- master
+  batch: true
+  branches:
+    include: ['master']
 
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- script: dotnet restore ./*.sln
+  displayName: Restore
+  workingDirectory: $(workingDirectory)
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- script: dotnet build ./*.sln --configuration $(buildConfiguration)
+  displayName: Build
+  workingDirectory: $(workingDirectory)
+
