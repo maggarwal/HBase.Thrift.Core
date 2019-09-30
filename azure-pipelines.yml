@@ -33,10 +33,10 @@ steps:
   displayName: Build
   workingDirectory: $(workingDirectory)
 
-- task: NuGetCommand@2
+- task: CmdLine@2
   inputs:
-    command: 'push'
-    packagesToPush: '$(packageDirectory)*.nupkg'
-    nuGetFeedType: 'internal'
-    publishVstsFeed: '31a2cce5-38d6-4dcd-ae6a-7ad370b6bc3f'
-    publishPackageMetadata: false
+    script: |
+      nuget setApiKey oy2mfjtbctglqdcnx24q23ccslyapcyebcivevefcoa4ii
+      
+      nuget push $(packageDirectory)*.nupkg -Source https://api.nuget.org/v3/index.json'
+
