@@ -11,7 +11,7 @@ variables:
   nuget.apikey: 'oy2mfjtbctglqdcnx24q23ccslyapcyebcivevefcoa4ii'
   nugetSource: 'https://api.nuget.org/v3/index.json'
 
-name: $(BuildDefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)
+name: 1.0.0.$(Rev:.r)
 
 trigger:
   batch: true
@@ -31,11 +31,19 @@ steps:
   displayName: Build
   workingDirectory: $(workingDirectory)
 
-- task: NuGetCommand@2
+- task: DotNetCoreCLI@2
   inputs:
     command: 'pack'
     packagesToPack: '**/HBase.Thrift.Core.csproj'
     versioningScheme: 'byBuildNumber'
+
+# - task: NuGetCommand@2
+#   inputs:
+#     command: 'pack'
+#     packagesToPack: '**/HBase.Thrift.Core.csproj'
+#     versioningScheme: 'byBuildNumber'
+#     buildProperties: '-MSBuildVersion 16.0'
+    
 
 - task: NuGetCommand@2
   inputs:
