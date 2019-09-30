@@ -28,7 +28,7 @@ steps:
 # - script: dotnet restore ./*.sln
 #   displayName: Restore
 #   workingDirectory: $(workingDirectory)
-- script: echo '1.0.0.$(Rev:.rr)'
+- script: echo $(Rev:.rr)'
 
 - script: dotnet build ./*.sln --configuration $(buildConfiguration)
   displayName: Build
