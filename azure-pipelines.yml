@@ -7,9 +7,8 @@
 variables:
   buildConfiguration: 'Release'
   workingDirectory: '$(Build.SourcesDirectory)'
-  packageDirectory: '$(Build.SourcesDirectory)/hbase-core/bin/Release/'
-  nuget.apikey: 'oy2mfjtbctglqdcnx24q23ccslyapcyebcivevefcoa4ii'
-  nugetSource: 'https://api.nuget.org/v3/index.json'
+
+name: 1.0.0$(Rev:.r)
 
 trigger:
   batch: true
@@ -29,15 +28,16 @@ steps:
   displayName: Build
   workingDirectory: $(workingDirectory)
 
-- task: NuGetCommand@2
+- task: DotNetCoreCLI@2
   inputs:
     command: 'pack'
     packagesToPack: '**/HBase.Thrift.Core.csproj'
     versioningScheme: 'byBuildNumber'
+    verbosityPack: 'Normal'
 
 - task: NuGetCommand@2
   inputs:
     command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)*.nupkg'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
     nuGetFeedType: 'external'
     publishFeedCredentials: 'Nuget'
