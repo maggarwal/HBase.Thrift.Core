@@ -1,0 +1,1 @@
+C:\Temp\thrift.exe --gen netcore Hbase.thrift

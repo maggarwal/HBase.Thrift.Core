@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <RootNamespace>HBase.Thrift.Core</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>This is a C# (.net standard) client for HBase which uses Thrift Interface. This project is fork of https://bitbucket.org/vadim/hbase-sharp</Description>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="thrift\gen-csharp\**" />
+    <EmbeddedResource Remove="thrift\gen-csharp\**" />
+    <None Remove="thrift\gen-csharp\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ApacheThrift" Version="0.12.0.1" />
+  </ItemGroup>
+
+</Project>

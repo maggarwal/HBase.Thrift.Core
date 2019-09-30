@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29319.158
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HBase.Thrift.Core", "hbase-core\HBase.Thrift.Core.csproj", "{243D60D7-E112-4A62-80D5-FA36B60750EE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HBase.Thrift.Core.Test", "HBaseTest\HBase.Thrift.Core.Test.csproj", "{EF286179-0521-4EC2-A0C9-35700DBB800D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{243D60D7-E112-4A62-80D5-FA36B60750EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{243D60D7-E112-4A62-80D5-FA36B60750EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{243D60D7-E112-4A62-80D5-FA36B60750EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{243D60D7-E112-4A62-80D5-FA36B60750EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF286179-0521-4EC2-A0C9-35700DBB800D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF286179-0521-4EC2-A0C9-35700DBB800D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF286179-0521-4EC2-A0C9-35700DBB800D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF286179-0521-4EC2-A0C9-35700DBB800D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {79EB47EF-A787-4D96-80D3-5DDED79FE4C2}
+	EndGlobalSection
+EndGlobal
