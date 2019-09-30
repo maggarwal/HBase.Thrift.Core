@@ -25,8 +25,6 @@ steps:
     packageType: 'sdk'
     version: '3.x'
 
-- script: echo $(packageDirectory)
-
 # - script: dotnet restore ./*.sln
 #   displayName: Restore
 #   workingDirectory: $(workingDirectory)
@@ -35,8 +33,15 @@ steps:
   displayName: Build
   workingDirectory: $(workingDirectory)
 
-- task: NuGetToolInstaller@1
-  displayName: 'Install NuGet'
+# - task: NuGetToolInstaller@1
+#   displayName: 'Install NuGet'
   
-- script: nuget push $(packageDirectory)*.nupkg -Source $(nugetSource) -ApiKey $(nuget.apikey) -SkipDuplicate -NoSymbols
-  displayName: 'Push to NuGet.org'
+# - script: nuget push $(packageDirectory)*.nupkg -Source $(nugetSource) -ApiKey $(nuget.apikey) -SkipDuplicate -NoSymbols
+#   displayName: 'Push to NuGet.org'
+
+- task: NuGetCommand@2
+  inputs:
+    command: 'push'
+    packagesToPush: '$(packageDirectory)*.nupkg'
+    nuGetFeedType: 'external'
+    publishFeedCredentials: 'Nuget'
