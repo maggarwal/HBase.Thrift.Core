@@ -25,14 +25,17 @@ steps:
 
 - script: echo $(packageDirectory)
 
-- script: dotnet restore ./*.sln
-  displayName: Restore
-  workingDirectory: $(workingDirectory)
+# - script: dotnet restore ./*.sln
+#   displayName: Restore
+#   workingDirectory: $(workingDirectory)
 
 - script: dotnet build ./*.sln --configuration $(buildConfiguration)
   displayName: Build
   workingDirectory: $(workingDirectory)
 
+- task: NuGetToolInstaller@1
+  inputs:
+    versionSpec: 
 - task: CmdLine@2
   inputs:
     script: |
